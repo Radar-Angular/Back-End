@@ -9,19 +9,8 @@ function lista() {
     }
 }
 
-function salvar(cliente) {
-    const clientes = lista()
-    try {
-        clientes.push(cliente)
-        fs.writeFileSync('database/clientes.json', JSON.stringify(clientes), {encoding: "utf8"});
-        return cliente
-    } catch (err) {
-        console.error(err);
-    }
-}
-
 exports.listaClientes = function() {
-    return lista()
+    return lista();
 }
 
 exports.listaClientePorId = function(id) {
@@ -36,7 +25,14 @@ exports.listaClientePorId = function(id) {
 }
 
 exports.salvarCliente = function(cliente) {
-    return salvar(cliente);
+    const clientes = lista()
+    try {
+        clientes.push(cliente)
+        fs.writeFileSync('database/clientes.json', JSON.stringify(clientes), {encoding: "utf8"});
+        return cliente
+    } catch (err) {
+        console.error(err);
+    }
 };
 
 exports.excluiCliente = function(id) {
@@ -52,5 +48,9 @@ exports.excluiCliente = function(id) {
 }
 
 exports.atualizaCliente = function(id, cliente) {
-    return null
+    const clientes = lista();
+    fs.writeFile('database/clientes.json', JSON.stringify(cliente), (err) => {
+        if (err) throw err;
+    })
+    return clientes;
 }

@@ -20,7 +20,13 @@ exports.salvarCliente = function(cliente) {
 
 exports.atualizaCliente = async function(id, cliente) {
     await exports.listaClientePorId(id);
-    return clientesData.atualizaCliente(id, cliente);
+
+    const clientes = exports.listaClientes();
+    const clienteIndex = clientes.findIndex(clienteExistente => clienteExistente.id === id);
+    if (clienteIndex < 0) throw new Error('Cliente não encontrado');
+    const clienteAtualizado = { ...clientes[clienteIndex], ...cliente};
+    clientes[clienteIndex] = clienteAtualizado;
+    return clientesData.atualizaCliente(id, clientes);
 }
 
 exports.excluiCliente = async function(id) {
