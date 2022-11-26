@@ -24,7 +24,7 @@ exports.listaClientes = function() {
     return lista()
 }
 
-exports.listaClientesPorId = function(id) {
+exports.listaClientePorId = function(id) {
     let clientes = []
     try {
         const dataClientesJson = fs.readFileSync('database/clientes.json', 'utf8');
@@ -49,4 +49,8 @@ exports.excluiCliente = function(id) {
         })
         return clientes;
     }
+}
+
+exports.atualizaCliente = function(id, cliente) {
+    return null
 }

@@ -7,8 +7,10 @@ exports.listaClientes = function() {
     return clientesData.listaClientes();
 };
 
-exports.listaClientesPorId = function(id) {
-    return clientesData.listaClientesPorId(id);
+exports.listaClientePorId = async function(id) {
+    const cliente = await clientesData.listaClientePorId(id);
+    if(!cliente)  throw new Error('Cliente não encontrado');
+    return cliente
 };
 
 exports.salvarCliente = function(cliente) {
@@ -16,10 +18,12 @@ exports.salvarCliente = function(cliente) {
     return clientesData.salvarCliente(cliente);
 };
 
-exports.atualizaCliente = function(id, cliente) {
+exports.atualizaCliente = async function(id, cliente) {
+    await exports.listaClientePorId(id);
     return clientesData.atualizaCliente(id, cliente);
 }
 
-exports.excluiCliente = function(id) {
+exports.excluiCliente = async function(id) {
+    await exports.listaClientePorId(id);
     return clientesData.excluiCliente(id);
 };
