@@ -24,8 +24,9 @@ router.put('/cliente/:id', async function(req, res) {
     res.end();
 });
 
-router.delete('/delete/:id', async function(req, res) {
-
+router.delete('/cliente/:id', async function(req, res) {
+    await clientesService.excluiCliente(req.params.id);
+    res.end();
 });
 
 
