@@ -1,0 +1,248 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "RadarAPI",
+        "description": "Essa API fornece dados dos usuarios, produtos e pedidos",
+        "contact": {
+            "email": "radarfarm@suporte.com.br"
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/cliente": {
+            "post": {
+                "summary": "Cadastro de clientes",
+                "description": "Essa rota será responsável por cadastrar um novo cliente",
+                "tags": ["Clientes"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Clientes"
+                            },
+                            "examples": {
+                                "cliente": {
+                                    "value": {
+                                        "nome": "Fulano de tal", 
+                                        "telefone": "(11)00000-0000", 
+                                        "email": "email@email.com", 
+                                        "cpf": "111.222.333-44", 
+                                        "cep": "99999-999", 
+                                        "logradouro": "Rua exemplo", 
+                                        "numero": "000", 
+                                        "bairro": "Bairro exemplo", 
+                                        "cidade": "São Paulo", 
+                                        "estado": "SP", 
+                                        "complemento": "Informacao adicional"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Clientes"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Cliente não existe!"
+                    }
+                } 
+            }
+        },
+
+        "/clientes": {
+            "get": {
+                "summary": "Listar todos os cliente",
+                "description": "Listar todos os cliente",
+                "tags": ["Clientes"],             
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Clientes"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Nenhum usuário encontrado!"
+                    }
+                } 
+            }
+        },
+
+        "/cliente/{id}": {
+            "get": {
+                "description": "Buscar de cliente pelo id",
+                "summary": "Buscar cliente pelo id",
+                "tags": ["Clientes"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id do produto para busca",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Clientes"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Cliente não existe!"
+                    }
+                }
+            },
+            "put": {
+                "description": "Alterar cliente pelo id",
+                "summary": "Alterar um cliente pelo id",
+                "tags": ["Clientes"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Alterar cliente pelo id",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Clientes"
+                            },
+                            "examples": {
+                                "cliente": {
+                                    "value": {
+                                        "nome": "Novo nome", 
+                                        "telefone": "Novo telefone", 
+                                        "email": "Novo email", 
+                                        "cpf": "Novo cpf", 
+                                        "cep": "Novo cep", 
+                                        "logradouro": "Nova rua", 
+                                        "numero": "Novo numero", 
+                                        "bairro": "Novo bairro", 
+                                        "cidade": "Nova cidade", 
+                                        "estado": "Novo estado", 
+                                        "complemento": "Nova Informacao adicional"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "204": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Clientes"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Cliente não existe!"
+                    }
+                }
+            },
+            "delete": {
+                "description": "Excluir cliente pelo id",
+                "summary": "Excluir cliente pelo id",
+                "tags": ["Clientes"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Excluir cliente pelo id",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Clientes"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Cliente não existe!"
+                    }
+                }
+            }
+        }
+
+
+        
+    },
+    "components": {
+        "schemas": {
+            "Clientes": {
+                "type": "object",
+                "properties": {
+                    "nome": {
+                        "type": "string"
+                    },
+                    "telefone": {
+                        "type": "string"    
+                    },
+                    "email": {
+                        "type": "string"    
+                    },
+                    "cpf": {
+                        "type": "string"    
+                    },
+                    "cep": {
+                        "type": "string"    
+                    },
+                    "logradouro": {
+                        "type": "string"    
+                    },
+                    "numero": {
+                        "type": "number"    
+                    },
+                    "bairro": {
+                        "type": "string"    
+                    },
+                    "cidade": {
+                        "type": "string"    
+                    },
+                    "estado": {
+                        "type": "string"    
+                    },
+                    "complemento": {
+                        "type": "string"    
+                    }
+                }
+            }
+
+        }
+    }
+}
