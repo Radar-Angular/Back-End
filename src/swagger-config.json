@@ -58,7 +58,6 @@
                 } 
             }
         },
-
         "/clientes": {
             "get": {
                 "summary": "Listar todos os cliente",
@@ -82,7 +81,6 @@
                 } 
             }
         },
-
         "/cliente/{id}": {
             "get": {
                 "description": "Buscar de cliente pelo id",
@@ -92,7 +90,7 @@
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "Id do produto para busca",
+                        "description": "Id do cliente para busca",
                         "required": true
                     }
                 ],
@@ -139,7 +137,7 @@
                                         "email": "Novo email", 
                                         "cpf": "Novo cpf", 
                                         "cep": "Novo cep", 
-                                        "logradouro": "Nova rua", 
+                                        "logradouro": "Novo endereco", 
                                         "numero": "Novo numero", 
                                         "bairro": "Novo bairro", 
                                         "cidade": "Nova cidade", 
@@ -158,13 +156,13 @@
                             "application/json": {
                                 "schema": {
                                     "type": "object",
-                                    "$ref": "#/components/schemas/Clientes"
+                                    "$ref": "#/components/schemas/Produtos"
                                 }
                             }
                         }
                     },
                     "404": {
-                        "description": "Cliente não existe!"
+                        "description": "Produto não existe!"
                     }
                 }
             },
@@ -197,48 +195,264 @@
                     }
                 }
             }
-        }
+        },
+        "/produto": {
+            "post": {
+                "summary": "Cadastro de produtos",
+                "description": "Cadastro de produto",
+                "tags": ["Produtos"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Produtos"
+                            },
+                            "examples": {
+                                "produto": {
+                                    "value": {
+                                        "nome": "Produto nome", 
+                                        "descricao": "Descrição do produto", 
+                                        "valor": "0.00", 
+                                        "qtdEstoque": "Quantidade disponível"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Produtos"
+                                }
+                            }
+                        }
+                    }
+                } 
+            }
+        },
+        "/produtos": {
+            "get": {
+                "summary": "Listar todos os produtos",
+                "description": "Listar todos os produto",
+                "tags": ["Produtos"],             
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Produtos"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Nenhum produto encontrado!"
+                    }
+                } 
+            }
+        },
 
-
-        
-    },
-    "components": {
-        "schemas": {
-            "Clientes": {
-                "type": "object",
-                "properties": {
-                    "nome": {
-                        "type": "string"
+        "/produtos/{nome}": {
+            "get": {
+                "description": "Buscar produto pelo nome",
+                "summary": "Buscar produto pelo nome",
+                "tags": ["Produtos"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Nome do produto para busca",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Produtos"
+                                }
+                            }
+                        }
                     },
-                    "telefone": {
-                        "type": "string"    
+                    "404": {
+                        "description": "Produto não existe!"
+                    }
+                }
+            }
+        },
+        "/produto/{id}": {
+            "get": {
+                "description": "Buscar produto pelo id",
+                "summary": "Buscar produto pelo id",
+                "tags": ["Produtos"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id do produto para busca",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Produtos"
+                                }
+                            }
+                        }
                     },
-                    "email": {
-                        "type": "string"    
+                    "404": {
+                        "description": "Produto não existe!"
+                    }
+                }
+            },
+            "put": {
+                "description": "Alterar produto pelo id",
+                "summary": "Alterar um produto pelo id",
+                "tags": ["Produtos"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Alterar produto pelo id",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Produtos"
+                            },
+                            "examples": {
+                                "produto": {
+                                    "value": {
+                                        "nome": "Novo nome", 
+                                        "descricao": "Nova descrição", 
+                                        "valor": "Novo valor", 
+                                        "qtdEstoque": "Nova quantidade"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "204": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Produtos"
+                                }
+                            }
+                        }
                     },
-                    "cpf": {
-                        "type": "string"    
+                    "404": {
+                        "description": "Produto não existe!"
+                    }
+                }
+            },
+            "delete": {
+                "description": "Excluir produto pelo id",
+                "summary": "Excluir produto pelo id",
+                "tags": ["Produtos"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Excluir produto pelo id",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Produtos"
+                                }
+                            }
+                        }
                     },
-                    "cep": {
-                        "type": "string"    
-                    },
-                    "logradouro": {
-                        "type": "string"    
-                    },
-                    "numero": {
-                        "type": "number"    
-                    },
-                    "bairro": {
-                        "type": "string"    
-                    },
-                    "cidade": {
-                        "type": "string"    
-                    },
-                    "estado": {
-                        "type": "string"    
-                    },
-                    "complemento": {
-                        "type": "string"    
+                    "404": {
+                        "description": "Produto não existe!"
+                    }
+                }
+            }
+        },
+        "components": {
+            "schemas": {
+                "Clientes": {
+                    "type": "object",
+                    "properties": {
+                        "nome": {
+                            "type": "string"
+                        },
+                        "telefone": {
+                            "type": "string"    
+                        },
+                        "email": {
+                            "type": "string"    
+                        },
+                        "cpf": {
+                            "type": "string"    
+                        },
+                        "cep": {
+                            "type": "string"    
+                        },
+                        "logradouro": {
+                            "type": "string"    
+                        },
+                        "numero": {
+                            "type": "number"    
+                        },
+                        "bairro": {
+                            "type": "string"    
+                        },
+                        "cidade": {
+                            "type": "string"    
+                        },
+                        "estado": {
+                            "type": "string"    
+                        },
+                        "complemento": {
+                            "type": "string"    
+                        }
+                    }
+                },
+                "Produtos": {
+                    "type": "object",
+                    "properties": {
+                        "nome": {
+                            "type": "string"
+                        },
+                        "descricao": {
+                            "type": "string"    
+                        },
+                        "valor": {
+                            "type": "number"    
+                        },
+                        "qtdEstoque": {
+                            "type": "number"    
+                        }
                     }
                 }
             }
