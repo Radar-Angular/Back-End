@@ -26,7 +26,9 @@ exports.listaProdutoPorId = function(id) {
 
 // TODO: Criar a função para buscar produtos por nome
 exports.listaProdutoPorNome = function(nome) {
-    
+    const produtos = lista();
+    const produto = produtos.filter(produto => produto.nome == nome); 
+    return produto;
 }
 
 exports.salvarProduto = function(cliente) {

@@ -12,6 +12,12 @@ exports.listaProdutoPorId = async function(id) {
     return produto
 };
 
+exports.listaProdutoPorNome = async function(nome) {
+    const produto = await produtosData.listaProdutoPorNome(nome);
+    if(produto.length == 0)  throw new Error('Produto não encontrado');
+    return produto
+};
+
 exports.salvarProduto = function(produto) {
     produto.id = uuidv4();
     return produtosData.salvarProduto(produto);

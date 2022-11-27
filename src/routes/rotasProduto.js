@@ -16,6 +16,15 @@ router.get('/produto/:id', async function(req, res) {
     }
 });
 
+router.get('/produtos/:nome', async function(req, res) {
+    try {
+        const produto = await produtosService.listaProdutoPorNome(req.params.nome);
+        res.json(produto);
+    } catch (e) {
+        res.status(404).json({"mensagem": "Produto não encontrado!"})
+    }
+});
+
 router.post('/produto', async function(req, res) {
     const produto = req.body;
     try {
