@@ -2,8 +2,8 @@ const { v4: uuidv4 } = require('uuid');
 
 const produtosData = require('../data/produtosData');
 
-exports.listaProduto = function() {
-    return produtosData.listaProduto();
+exports.listaProdutos = function() {
+    return produtosData.listaProdutos();
 };
 
 exports.listaProdutoPorId = async function(id) {
@@ -13,7 +13,7 @@ exports.listaProdutoPorId = async function(id) {
 };
 
 exports.salvarProduto = function(produto) {
-    produto.id = uuidv4()
+    produto.id = uuidv4();
     return produtosData.salvarProduto(produto);
 };
 
@@ -26,10 +26,10 @@ exports.atualizaProduto = async function(id, produto) {
     if (produtoIndex < 0) throw new Error('Produto não encontrado');
     const produtoAtualizado = { ...produtos[produtoIndex], ...produto};
     produtos[produtoIndex] = produtoAtualizado;
-    return produtosData.atualizaProduto(id, produtos);
+    return produtosData.atualizaProduto(id, produtos)
 }
 
-exports.excluiCliente = async function(id) {
-    await exports.listaClientePorId(id);
-    return ClientesData.excluiCliente(id);
+exports.excluiProduto = async function(id) {
+    await exports.listaProdutoPorId(id);
+    return produtosData.excluiProduto(id);
 };

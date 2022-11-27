@@ -2,8 +2,8 @@ const express = require("express");
 const router = express.Router();
 const produtosService = require('../services/produtosService');
 
-router.get('/produto', async function(req, res) {
-    const produto = await produtoService.listaProduto();
+router.get('/produtos', async function(req, res) {
+    const produto = await produtosService.listaProdutos();
     res.json(produto);
 });
 
@@ -19,7 +19,7 @@ router.get('/produto/:id', async function(req, res) {
 router.post('/produto', async function(req, res) {
     const produto = req.body;
     try {
-        const novoProduto = await produtosService.salvarproduto(produto);
+        const novoProduto = await produtosService.salvarProduto(produto)
         res.status(201).json(novoProduto);
     } catch(e) {
         res.status(404).json({"mensagem": "Produto não encontrado!"});
