@@ -9,4 +9,6 @@ app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerConfig))
 
 app.use('/', require('./routes/rotasCliente'));
 
+app.use('/', require('./routes/rotasProduto'));
+
 app.listen(3000, () => console.log("Servidor rodando: http://localhost:3000/"))
