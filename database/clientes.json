@@ -1,1 +1,94 @@
-[]
+[
+    {
+        "id": "4536",
+        "nome": "Carlos",
+        "telefone": "(11)91234-5126",
+        "email": "carlosalm@gmail.com",
+        "cpf": "010.727.010-22",
+        "cep": "06475-861",
+        "logradouro": "Rua Girassol",
+        "numero": "526",
+        "bairro": "Vila madalena",
+        "cidade": "São Paulo",
+        "estado": "SP",
+        "complemento": "Casa"
+    },
+    {
+        "nome": "Bianca",
+        "telefone": "(11)52642-5126",
+        "email": "biancanickm@gmail.com",
+        "cpf": "108.881.570-70",
+        "cep": "64315490",
+        "logradouro": "Av paulista",
+        "numero": "1523",
+        "bairro": "Consolação",
+        "cidade": "São Paulo",
+        "estado": "SP",
+        "complemento": "Apartamento bloco b nº 73"
+    },
+    {
+        "nome": "Jorge",
+        "telefone": "(11)94125-2348",
+        "email": "jorgeben@gmail.com",
+        "cpf": "925.893.400-87",
+        "cep": "69027-580",
+        "logradouro": "Rua Faustolo",
+        "numero": "753",
+        "bairro": "Vila Romana",
+        "cidade": "São Paulo",
+        "estado": "SP",
+        "complemento": "Casa"
+    },
+    {
+        "nome": "Luciana",
+        "telefone": "(49) 3116-3850",
+        "email": "lucianasilva@gmail.com",
+        "cpf": "774.321.170-39",
+        "cep": "68909-333",
+        "logradouro": "Rua das Pampulhas",
+        "numero": "27",
+        "bairro": "Vila madalena",
+        "cidade": "São Paulo",
+        "estado": "SP",
+        "complemento": "Casa"
+    },
+    {
+        "nome": "Clarice",
+        "telefone": "(96) 2294-1466",
+        "email": "claricelinspec@gmail.com",
+        "cpf": "516.280.370-75",
+        "cep": "06475-861",
+        "logradouro": "Avenida do estado",
+        "numero": "2356",
+        "bairro": "Ipiranga",
+        "cidade": "São Paulo",
+        "estado": "SP",
+        "complemento": "Apartamento bloco f nº 58"
+    },
+    {
+        "nome": "Naldo",
+        "telefone": "(48) 2061-0521",
+        "email": "naldovan@gmail.com",
+        "cpf": "393.161.470-00",
+        "cep": "06475-861",
+        "logradouro": "Rua Espartaco",
+        "numero": "73",
+        "bairro": "Vila Romana",
+        "cidade": "São Paulo",
+        "estado": "SP",
+        "complemento": "Casa"
+    },
+    {
+        "nome": "Beatriz",
+        "telefone": "(11)91234-5126",
+        "email": "beatrizcomp@gmail.com",
+        "cpf": "730.230.040-21",
+        "cep": "69312-145",
+        "logradouro": "Rua Isaac Cabral",
+        "numero": "759",
+        "bairro": "Vila Floresta",
+        "cidade": "Boa vista",
+        "estado": "RR",
+        "complemento": "Roraima"
+    }
+]
