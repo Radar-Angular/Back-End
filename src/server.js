@@ -11,4 +11,6 @@ app.use('/', require('./routes/rotasCliente'));
 
 app.use('/', require('./routes/rotasProduto'));
 
+app.use('/', require('./routes/rotasPedido'));
+
 app.listen(3000, () => console.log("Servidor rodando: http://localhost:3000/"))
