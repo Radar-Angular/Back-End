@@ -1,30 +1,35 @@
 [{
-    
+    "id": 2001,
     "nome": "Novalgina",
     "descricao": "Para dores",
     "valor": 10.50,
     "qtdEstoque": 214
 },{
+    "id": 2002,
     "nome": "Buscopan",
     "descricao": "Para dores",
     "valor": 15.59,
     "qtdEstoque": 253
 },{
+    "id": 2003,
     "nome": "BeneGripe",
     "descricao": "Para Gripe",
     "valor": 9.99,
     "qtdEstoque": 150
 },{
+    "id": 2004,
     "nome": "Prednisolona",
     "descricao": "Para Tosse seca",
     "valor": 12.99,
     "qtdEstoque": 125
 },{
+    "id": 2005,
     "nome": "Dipirona",
     "descricao": "Para dores",
     "valor": 10.08,
     "qtdEstoque": 423
 },{
+    "id": 2006,
     "nome": "Lacrifilm",
     "descricao": "Colirio",
     "valor": 21.69,
