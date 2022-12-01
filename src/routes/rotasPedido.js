@@ -7,7 +7,7 @@ router.get('/pedidos', async function(req, res) {
     res.json(pedidos);
 });
 
-router.get('/pedido/:id', async function(req, res) {
+router.get('/pedidos/:id', async function(req, res) {
     try {
         const pedido = await pedidosService.listaPedidoPorId(req.params.id);
         res.json(pedido);
@@ -25,7 +25,7 @@ router.get('/pedidos/:nome', async function(req, res) {
     }
 });
 
-router.post('/pedido', async function(req, res) {
+router.post('/pedidos', async function(req, res) {
     const pedido = req.body;
     try {
         const novoPedido = await pedidosService.salvarPedido(pedido);
@@ -35,7 +35,7 @@ router.post('/pedido', async function(req, res) {
     }
 });
 
-router.put('/pedido/:id', async function(req, res) {
+router.put('/pedidos/:id', async function(req, res) {
     const pedido = req.body;
     try {
         await pedidosService.atualizaPedido(req.params.id, pedido);
@@ -45,7 +45,7 @@ router.put('/pedido/:id', async function(req, res) {
     }
 });
 
-router.delete('/pedido/:id', async function(req, res) {
+router.delete('/pedidos/:id', async function(req, res) {
     try {
         await pedidosService.excluiPedido(req.params.id);
         res.status(204).end();
